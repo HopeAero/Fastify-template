@@ -1,8 +1,8 @@
 module.exports = {
     parser: '@typescript-eslint/parser',
+    root: true,
     parserOptions: {
-      project: 'tsconfig.json',
-      tsconfigRootDir: __dirname,
+      ecmaVersion: 2020,
       sourceType: 'module',
     },
     plugins: ['@typescript-eslint/eslint-plugin', 'prettier', 'import'],
@@ -29,4 +29,10 @@ module.exports = {
       '@typescript-eslint/explicit-module-boundary-types': 'off',
       '@typescript-eslint/no-explicit-any': 'off',
     },
+    "overrides": [
+    {
+      "files": ["changelog.config.js", "commitlint.config.js" ],
+      "excludedFiles": "*.js",
+    }
+  ]
   };
