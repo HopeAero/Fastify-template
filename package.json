@@ -1,14 +1,29 @@
 {
+	"name": "fastify-typescript",
+	"version": "1.0.0",
+	"author": "HopeAero",
+	"license": "MIT",
+	"description": "Fastify typescript Template",
+	"main": "app.js",
 	"dependencies": {
-		"fastify": "^5.2.2"
+		"@fastify/cors": "^11.0.1",
+		"@fastify/formbody": "^8.0.2",
+		"@fastify/helmet": "^13.0.1",
+		"@types/express": "^5.0.1",
+		"dotenv": "^16.4.7",
+		"dotenv-cli": "^8.0.0",
+		"fastify": "^5.2.2",
+		"joi": "^17.13.3"
 	},
 	"devDependencies": {
 		"@commitlint/cli": "^19.8.0",
 		"@commitlint/config-conventional": "^19.8.0",
+		"@eslint/migrate-config": "^1.4.1",
 		"@types/eslint": "^9.6.1",
 		"@types/eslint-config-prettier": "^6.11.3",
 		"@types/eslint-plugin-prettier": "^3.1.3",
 		"@types/http-errors": "^2.0.4",
+		"@types/lint-staged": "^13.3.0",
 		"@types/node": "^22.14.0",
 		"@types/prettier": "^3.0.0",
 		"@typescript-eslint/eslint-plugin": "^8.29.0",
@@ -17,8 +32,12 @@
 		"eslint": "^9.24.0",
 		"eslint-config-prettier": "^10.1.1",
 		"eslint-plugin-import": "^2.31.0",
+		"eslint-plugin-node": "^11.1.0",
+		"eslint-plugin-prettier": "^5.2.6",
+		"globals": "^16.0.0",
 		"husky": "^8.0.0",
 		"lint-staged": "15.5.0",
+		"prettier": "^3.5.3",
 		"ts-node": "^10.9.2",
 		"ts-node-dev": "^2.0.0",
 		"typescript": "^5.8.2"
@@ -26,10 +45,14 @@
 	"scripts": {
 		"prepare": "husky install",
 		"commitlint": "commitlint --edit",
-		"lint": "eslint '{src,test}/**/*.ts'",
-		"lint:fix": "eslint --fix '{src,test}/**/*.ts'",
+		"eslint-migrate": "npx @eslint/migrate-config .eslintrc.js",
+		"lint": "npm run eslint-migrate && eslint '{src,test}/**/*.ts'",
+		"lint:fix": "npm run eslint-migrate && eslint --fix '{src,test}/**/*.ts'",
 		"format": "prettier --write 'src/**/*.ts'",
-		"changelog": "conventional-changelog -i CHANGELOG.md -s -r 0"
+		"changelog": "conventional-changelog -i CHANGELOG.md -s -r 0",
+		"build": "tsc -p tsconfig.json",
+		"start": "node dist/app.js",
+		"dev": "ts-node-dev --respawn --transpile-only src/app.ts"
 	},
 	"lint-staged": {
 		"{src,test}/**/*.{ts,js,json}": [

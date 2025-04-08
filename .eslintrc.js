@@ -1,38 +1,32 @@
 module.exports = {
-  root: true,
-  parser: '@typescript-eslint/parser',
-  parserOptions: {
-    ecmaVersion: 2020,
-    sourceType: 'module',
-  },
-  env: {
-    node: true,
-    es6: true,
-  },
-  extends: [
-    'eslint:recommended',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:prettier/recommended',
-    'prettier',
-  ],
-  plugins: ['@typescript-eslint', 'prettier'],
-  rules: {
-    'prettier/prettier': 'error',
-    '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
-    'no-console': 'warn',
-    'no-debugger': 'warn',
-    'import/order': [
-      'error',
-      {
-        groups: [['builtin', 'external', 'internal']],
-        'newlines-between': 'always',
-      },
+    parser: '@typescript-eslint/parser',
+    parserOptions: {
+      project: 'tsconfig.json',
+      tsconfigRootDir: __dirname,
+      sourceType: 'module',
+    },
+    plugins: ['@typescript-eslint/eslint-plugin', 'prettier', 'import'],
+    extends: [
+      'plugin:@typescript-eslint/recommended',
+      'plugin:prettier/recommended',
     ],
-    'node/no-unsupported-features/es-syntax': [
-      'error',
-      {
-        ignores: ['modules'],
-      },
-    ],
-  },
-};
+    root: true,
+    env: {
+      node: true,
+      jest: true,
+    },
+    ignorePatterns: ['.eslintrc.js'],
+    rules: {
+      "import/order": [
+        "error",
+        {
+          "groups": ["builtin", "external", "internal", "parent", "sibling", "index"],
+          "newlines-between": "always"
+        }
+      ],
+      '@typescript-eslint/interface-name-prefix': 'off',
+      '@typescript-eslint/explicit-function-return-type': 'off',
+      '@typescript-eslint/explicit-module-boundary-types': 'off',
+      '@typescript-eslint/no-explicit-any': 'off',
+    },
+  };
