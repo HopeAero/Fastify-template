@@ -15,7 +15,7 @@ module.exports = {
       node: true,
       jest: true,
     },
-    ignorePatterns: ['.eslintrc.js'],
+    ignorePatterns: ['.eslintrc.js', 'changelog.config.js', 'commitlint.config.js'],
     rules: {
       "import/order": [
         "error",

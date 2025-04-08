@@ -49,8 +49,7 @@
 		"lint": "npm run eslint-migrate && eslint '{src,test}/**/*.ts'",
 		"lint:fix": "npm run eslint-migrate && eslint --fix '{src,test}/**/*.ts'",
 		"format": "prettier --write 'src/**/*.ts'",
-		"changelog": "conventional-changelog -i CHANGELOG.md -s -r 0",
-		"build": "tsc -p tsconfig.json",
+		"changelog": "conventional-changelog -i CHANGELOG.md -s -r 0 --config ./changelog.config.js",		"build": "tsc -p tsconfig.json",
 		"start": "node dist/app.js",
 		"dev": "ts-node-dev --respawn --transpile-only src/app.ts"
 	},
