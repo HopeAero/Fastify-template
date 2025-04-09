@@ -3,7 +3,6 @@ import formbody from '@fastify/formbody';
 import helmet from '@fastify/helmet';
 import fastifyRoutes from '@fastify/routes';
 import Fastify from 'fastify';
-
 import loadConfig from './config/env.config';
 
 loadConfig();

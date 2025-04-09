@@ -1,7 +1,6 @@
-import path from 'path';
-
 import dotenv from 'dotenv';
 import Joi from 'joi';
+import path from 'path';
 
 export default function loadConfig(): void {
   const envPath = path.join(__dirname, '..', '..', '.env');
