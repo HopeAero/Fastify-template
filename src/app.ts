@@ -1,6 +1,7 @@
 import cors from '@fastify/cors';
 import formbody from '@fastify/formbody';
 import helmet from '@fastify/helmet';
+import fastifyRoutes from '@fastify/routes';
 import Fastify from 'fastify';
 
 import loadConfig from './config/env.config';
@@ -26,6 +27,8 @@ const startServer = async () => {
   server.get('/', (request, reply) => {
     reply.status(200).send({ message: 'Hello from fastify template!' });
   });
+
+  server.register(fastifyRoutes);
 
   const signals: NodeJS.Signals[] = ['SIGINT', 'SIGTERM'];
   signals.forEach((signal) => {
@@ -53,5 +56,11 @@ const startServer = async () => {
     process.exit(1);
   }
 };
+
+// Handle uncaught exceptions
+process.on('unhandledRejection', (err) => {
+  console.error('Unhandled Rejection:', err);
+  process.exit(1);
+});
 
 startServer();

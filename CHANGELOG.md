@@ -1,5 +1,7 @@
-## 1.0.0 (2025-04-08)
+## 1.0.0 (2025-04-09)
 
+* fix: corregir configuración de ESLint y agregar overrides para archivos específicos ([e07c4bf](https://github.com/HopeAero/Fastify-template/commit/e07c4bf))
+* feat: agregar configuración de changelog y commitlint, y actualizar .eslintignore ([9548348](https://github.com/HopeAero/Fastify-template/commit/9548348))
 * fix: actualizar la versión del changelog a 1.0.0 y agregar entradas de cambios recientes ([85daa7a](https://github.com/HopeAero/Fastify-template/commit/85daa7a))
 * feat: agregar comando para generar changelog en el pre-commit ([00f62a3](https://github.com/HopeAero/Fastify-template/commit/00f62a3))
 * feat: agregar plugin para ordenar importaciones en la configuración de Prettier ([25d754e](https://github.com/HopeAero/Fastify-template/commit/25d754e))
