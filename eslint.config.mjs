@@ -20,16 +20,38 @@ const compat = new FlatCompat({
 
 export default defineConfig([globalIgnores([
     "**/.eslintrc.js",
+    "**/commitlint.config.js",
+    "**/changelog.config.js",
+    "**/.eslintrc.js",
+    "**/logs",
+    "**/*.log",
+    "**/pids",
+    "**/*.pid",
+    "**/*.seed",
+    "**/lib-cov",
+    "**/coverage",
+    "**/.grunt",
+    "**/.lock-wscript",
+    "build/Release",
+    "**/.eslintcache",
     "**/node_modules",
+    "**/.DS_Store",
+    "**/dist",
+    "**/.idea",
+    "**/npm-debug.log.*",
+    "**/__snapshots__",
+    "**/package.json",
+    "**/package-lock.json",
+    "**/pnpm-lock.yaml",
+    "**/.travis.yml",
     "**/dist",
     "**/build",
     "**/*.d.ts",
     "**/ci",
     "**/test",
     "**/jest.json",
-    "**/*.log",
-    "**/*.tsbuildinfo",
-    "**/*.tgz",
+    "**/changelog.config.js",
+    "**/commitlint.config.js",
 ]), {
     extends: compat.extends("plugin:@typescript-eslint/recommended", "plugin:prettier/recommended"),
 
@@ -56,11 +78,6 @@ export default defineConfig([globalIgnores([
     },
 
     rules: {
-        "import/order": ["error", {
-            groups: ["builtin", "external", "internal", "parent", "sibling", "index"],
-            "newlines-between": "always",
-        }],
-
         "@typescript-eslint/interface-name-prefix": "off",
         "@typescript-eslint/explicit-function-return-type": "off",
         "@typescript-eslint/explicit-module-boundary-types": "off",
